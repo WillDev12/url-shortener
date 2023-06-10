@@ -20,17 +20,22 @@ app.post('/generate', async (req, res) => {
     }
 
     const shortURL = await shortenedURL.create(urlData)
-    res.render("index", { newUrl: `${req.headers.origin}/r/${shortURL.id}`})
+    res.render("index", { newUrl: `${req.headers.origin}/${shortURL.id}`})
 })
 
-app.route('/r/:id').get(handleRedirect).post(handleRedirect)
+app.route('/:id/').get(handleRedirect).post(handleRedirect)
+app.route('/stats/:id/').get(handleStats).post(handleStats)
 
 async function handleRedirect(req, res) {
     const shortUrl = await shortenedURL.findById(req.params.id)
     shortUrl.hitcount++
     await shortUrl.save()
-    console.log(shortUrl.hitcount)
     res.redirect(shortUrl.url)
+}
+
+async function handleStats(req, res) {
+    const urlStats = await shortenedURL.findById(req.params.id)
+    res.send('Number of impressions: ' + urlStats.hitcount)
 }
 
 app.listen(process.env.PORT, () => {console.log("listening on " + process.env.PORT)})
