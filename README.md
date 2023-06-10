@@ -6,4 +6,4 @@
 4. go to `localhost:3000`
 5. enjoy
 
-<img src="https://md-announcements.vercel.app/api?type=horizontal&text=Notice:%20This%20doesn%27t%20really%20shorten%20anything%20efficiently%20but%20redirects&color=yellow&icon=warning&animate=fadein" width="100%"></img>
+<img src="https://md-announcements.vercel.app/api?type=horizontal&text=Notice:%20This%20isn't%20efficient%20but%20works%20just%20the%20same&color=yellow&icon=warning&animate=fadein" width="100%"></img>
