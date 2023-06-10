@@ -1,3 +1,6 @@
+// Npm run dev
+// localhost:3000
+
 require('dotenv').config()
 const mongoose = require('mongoose')
 
